@@ -29,18 +29,20 @@ public class BasicShape {
 	public double getPerimeter() {
 		return 0.0;
 	}
-	
+
+	/*
+	 * override equals() method to compare two objects, it will return true when
+	 * they are same kind of object and have same width. code citation refer to
+	 * below web site:
+	 * https://www.geeksforgeeks.org/overriding-equals-method-in-java/
+	 */
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
+		if (obj instanceof BasicShape) {
+			BasicShape basicShape = (BasicShape) obj;
+			return (Double.compare(getWidth(), basicShape.getWidth()) == 0);
+		}
+		return false;
 	}
-	
-//	public boolean equals(BasicShape basicShape) {
-//
-//		return (Double.compare(getWidth(), basicShape.getWidth()) == 0);
-//
-//	}
-	
-	
 
 }

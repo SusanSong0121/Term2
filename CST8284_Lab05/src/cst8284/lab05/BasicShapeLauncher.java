@@ -25,19 +25,13 @@ public class BasicShapeLauncher {
 	    Square defaultSquare = new Square();
 	    Triangle triangle1 = new Triangle(triangle);
 	    Triangle triangle2 = new Triangle(6.0);
-	    Rectangle rc = new Rectangle();
-	    
 
-	      
 	    System.out.println("A square & circle are " + (square.equals(circle)?"":"NOT ") + "equal");
 	    System.out.println("The default square is " + (defaultSquare.equals(square)?"":"NOT ") + "equal to a square of width 2.0");
 	    
 	    System.out.println("\nA triangle is " + (triangle.equals(triangle)?"":"NOT ") + "equal to itself");
 	    System.out.println("The copy constructor triangle is " + (triangle.equals(triangle1)?"":"NOT ") + "equal to its source triangle");
 	    System.out.println("triangle1 is " + (triangle1.equals(triangle2)?"":"NOT ") + "equal to triangle2");
-
-	    System.out.println(defaultSquare.equals(rc));
-	    System.out.println(rc.equals(defaultSquare));
 
 	    }
 }

@@ -6,32 +6,51 @@ package cst8284.lab05;
  * Class Name: Square
  * Date: July 6,2021
  */
+
+/*
+ * Square class is a subclass of BasicShape class, it has three constructors and
+ * four override methods.
+ */
 public class Square extends BasicShape {
 
+	/* default constructor */
 	public Square() {
 		this(minValue);
 	}
 
+	/* overload constructor with width */
 	public Square(double width) {
 		super(width);
 	}
 
+	/*
+	 * copy constructor, will use a pre-existing Suqare object to create a new
+	 * Square object
+	 */
 	public Square(Square square) {
 		this(square.getWidth());
 	}
 
+	/*
+	 * override getAres() method to use the formula to calculate the area of square
+	 */
 	@Override
 	public double getArea() {
 		double area = getWidth() * getWidth();
 		return area;
 	}
 
+	/*
+	 * override getPerimeter() method to use the formula to calculate the perimeter
+	 * of square
+	 */
 	@Override
 	public double getPerimeter() {
 		double perimeter = 4 * getWidth();
 		return perimeter;
 	}
 
+	/* override toString() method to format the output */
 	@Override
 	public String toString() {
 		return "Square extends " + super.toString();
@@ -45,24 +64,11 @@ public class Square extends BasicShape {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
+		if (obj instanceof Square) {
+			return super.equals(obj);
 		}
 
-		if (obj == null || !(obj instanceof Square)) {
-			return false;
-		}
-
-			Square square = (Square) obj;
-			return (Double.compare(getWidth(), square.getWidth()) == 0);
-
+		return false;
 	}
-	
-//	public boolean equals(BasicShape basicShape) {
-//		if (basicShape instanceof Square) {
-//			return super.equals(basicShape);
-//		}
-//		
-//		return false;
-//	}
+
 }

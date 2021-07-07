@@ -6,32 +6,52 @@ package cst8284.lab05;
  * Class Name: Triangle
  * Date: July 6,2021
  */
+
+/*
+ * Triangle class is a subclass of BasicShape class, it has three constructors
+ * and four override methods.
+ */
 public class Triangle extends BasicShape {
 
+	/* default constructor */
 	public Triangle() {
 		this(minValue);
 	}
 
+	/* overload constructor with width */
 	public Triangle(double width) {
 		super(width);
 	}
 
+	/*
+	 * copy constructor, will use a pre-existing Triangle object to create a new
+	 * Triangle object
+	 */
 	public Triangle(Triangle triangle) {
 		this(triangle.getWidth());
 	}
 
+	/*
+	 * override getAres() method to use the formula to calculate the area of
+	 * triangle
+	 */
 	@Override
 	public double getArea() {
 		double area = Math.sqrt(3) / 4 * getWidth() * getWidth();
 		return area;
 	}
 
+	/*
+	 * override getPerimeter() method to use the formula to calculate the perimeter
+	 * of triangle
+	 */
 	@Override
 	public double getPerimeter() {
 		double perimeter = 3 * getWidth();
 		return perimeter;
 	}
 
+	/* override toString() method to format the output */
 	@Override
 	public String toString() {
 		return "Triangle extends " + super.toString();
@@ -45,26 +65,11 @@ public class Triangle extends BasicShape {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
+		if (obj instanceof Triangle) {
+			return super.equals(obj);
 		}
 
-		if (obj == null || !(obj instanceof Triangle)) {
-			return false;
-		}
-
-			Triangle triangle = (Triangle) obj;
-			return (Double.compare(getWidth(), triangle.getWidth()) == 0);
+		return false;
 	}
-	
-
-//	@Override
-//	public boolean equals(BasicShape basicShape) {
-//		if (basicShape instanceof Triangle) {
-//			return super.equals(basicShape);
-//		}
-//		
-//		return false;
-//	}
 
 }
