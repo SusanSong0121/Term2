@@ -9,6 +9,7 @@ import org.junit.Test;
 public class SquareTest {
 
 	private Square square;
+	private final double WIDTH = 1.0;
 	
 	@Before
 	public void initSquare() {
@@ -18,25 +19,29 @@ public class SquareTest {
 	@Test
 	public void testGetArea_True() {
 		double area = square.getArea();
-		assertTrue(Double.compare(1, area) == 0);
+		double area1 = WIDTH * WIDTH;
+		assertTrue(Double.compare(area1, area) == 0);
 	}
 
 	@Test
 	public void testGetArea_False() {
 		double area = square.getArea();
-		assertFalse(Double.compare(Math.PI, area) == 0);
+		double area1 = Math.PI * WIDTH;
+		assertFalse(Double.compare(area1, area) == 0);
 	}
 	
 	@Test
 	public void testGetPerimeter_True() {
 		double perimeter = square.getPerimeter();
-		assertTrue(Double.compare(4, perimeter) == 0);
+		double perimeter1 = 4 * WIDTH;
+		assertTrue(Double.compare(perimeter1, perimeter) == 0);
 	}
 	
 	@Test
 	public void testGetPerimeter_False() {
 		double perimeter = square.getPerimeter();
-		assertFalse(Double.compare(Math.PI, perimeter) == 0);
+		double perimeter1 = 3 * WIDTH;
+		assertFalse(Double.compare(perimeter1, perimeter) == 0);
 	}
 
 }

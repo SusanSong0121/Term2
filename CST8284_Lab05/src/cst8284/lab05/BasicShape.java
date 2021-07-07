@@ -34,5 +34,13 @@ public class BasicShape {
 	public boolean equals(Object obj) {
 		return super.equals(obj);
 	}
+	
+//	public boolean equals(BasicShape basicShape) {
+//
+//		return (Double.compare(getWidth(), basicShape.getWidth()) == 0);
+//
+//	}
+	
+	
 
 }

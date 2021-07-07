@@ -9,7 +9,8 @@ import org.junit.Test;
 public class CircleTest {
 
 	private Circle circle;
-	
+	private final double WIDTH = 1.0;
+
 	@Before
 	public void initCircle() {
 		circle = new Circle();
@@ -18,25 +19,29 @@ public class CircleTest {
 	@Test
 	public void testGetArea_True() {
 		double area = circle.getArea();
-		assertTrue(Double.compare(Math.PI/4, area) == 0);
+		double area1 = Math.PI * WIDTH * WIDTH / 4;
+		assertTrue(Double.compare(area1, area) == 0);
 	}
-	
+
 	@Test
 	public void testGetArea_False() {
 		double area = circle.getArea();
-		assertFalse(Double.compare(Math.PI, area) == 0);
+		double area1 = Math.PI * WIDTH * WIDTH;
+		assertFalse(Double.compare(area1, area) == 0);
 	}
 
 	@Test
 	public void testGetPerimeter_True() {
 		double perimeter = circle.getPerimeter();
-		assertTrue(Double.compare(Math.PI, perimeter) == 0);
+		double perimeter1 = Math.PI * WIDTH;
+		assertTrue(Double.compare(perimeter1, perimeter) == 0);
 	}
-	
+
 	@Test
 	public void testGetPerimeter_False() {
 		double perimeter = circle.getPerimeter();
-		assertFalse(Double.compare(Math.PI/2, perimeter) == 0);
+		double perimeter1 = Math.PI * WIDTH / 2;
+		assertFalse(Double.compare(perimeter1, perimeter) == 0);
 	}
 
 }

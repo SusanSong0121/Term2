@@ -7,8 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TriangleTest {
-	
+
 	private Triangle triangle;
+	private final double WIDTH = 1.0;
 
 	@Before
 	public void initTriangle() {
@@ -18,25 +19,29 @@ public class TriangleTest {
 	@Test
 	public void testGetArea_True() {
 		double area = triangle.getArea();
-		assertTrue(Double.compare(Math.sqrt(3)/4, area) == 0);
+		double area1 = Math.sqrt(3) / 4 * WIDTH * WIDTH;
+		assertTrue(Double.compare(area1, area) == 0);
 	}
 
 	@Test
 	public void testGetArea_False() {
 		double area = triangle.getArea();
-		assertFalse(Double.compare(Math.PI, area) == 0);
+		double area1 = WIDTH * WIDTH;
+		assertFalse(Double.compare(area1, area) == 0);
 	}
-	
+
 	@Test
 	public void testGetPerimeter_True() {
 		double perimeter = triangle.getPerimeter();
-		assertTrue(Double.compare(3, perimeter) == 0);
+		double perimeter1 = 3 * WIDTH;
+		assertTrue(Double.compare(perimeter1, perimeter) == 0);
 	}
-	
+
 	@Test
 	public void testGetPerimeter_False() {
 		double perimeter = triangle.getPerimeter();
-		assertFalse(Double.compare(Math.PI, perimeter) == 0);
+		double perimeter1 = 4 * WIDTH;
+		assertFalse(Double.compare(perimeter1, perimeter) == 0);
 	}
 
 }
