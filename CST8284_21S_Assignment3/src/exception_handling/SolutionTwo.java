@@ -3,60 +3,68 @@ package exception_handling;
 import java.io.IOException;
 
 /**
- * Class Name: CST8284-300 Assignment3 Author Name: Chunfang Song Class Name:
- * SolutionTwo Date: August 8,2021
+ * Class Name: CST8284-300 Assignment3 
+ * Author Name: Chunfang Song 
+ * ClassName:SolutionTwo 
+ * Date: August 11, 2021
  */
 
+/*
+ * Class SolutionTwo will perform exception handling that the exception of
+ * subclass ExceptionBlue/ExceptionYellow/NullPointerException/IOException will
+ * be caught by the superclass Exception type
+ */
 public class SolutionTwo {
 
-	public SolutionTwo() {
-		// TODO Auto-generated constructor stub
-	}
+	// entry point of the program
+	public static void main(String[] args) {
 
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		try {
-			throw new SolutionTwo().new ExceptionYellow();
-		} catch (Exception exception) {
-			System.out.println("Caught ExceptionYellow");
-			System.err.println(exception.getMessage());
-			exception.printStackTrace();
-		}
-		System.out.println("--------------------------------------------------------------");
+		SolutionTwo solution = new SolutionTwo(); // instantiate a SolutionTwo object
 
 		try {
-			throw new SolutionTwo().new ExceptionBlue();
-		} catch (Exception exception) {
+			throw solution.new ExceptionBlue();// instantiate an ExceptionBlue object and throw it
+
+		} catch (Exception exception) {// if caught the exception type of Exception, then execute following code
 			System.out.println("Caught ExceptionBlue");
-			System.err.println(exception.getMessage());
-			exception.printStackTrace();
+			exception.printStackTrace();// print the throwable and its backtrace to the standard error stream
 		}
 		System.out.println("--------------------------------------------------------------");
 
 		try {
-			throw new NullPointerException();
-		} catch (Exception exception) {
+			throw solution.new ExceptionYellow();// instantiate an ExceptionYellow object and throw it
+		} catch (Exception exception) {// if caught the Exception type of exception, then execute following code
+			System.out.println("Caught ExceptionYellow");
+			exception.printStackTrace();// print the throwable and its backtrace to the standard error stream
+		}
+
+		System.out.println("--------------------------------------------------------------");
+
+		try {
+			throw new NullPointerException(); // throw a NullPointerException
+
+		} catch (Exception exception) {// if caught the Exception type of exception, then execute following code
 			System.out.println("Caught NullPointerException");
-			System.err.println(exception.getMessage());
-			exception.printStackTrace();
+			exception.printStackTrace();// print the throwable and its backtrace to the standard error stream
 		}
 		System.out.println("--------------------------------------------------------------");
 
 		try {
-			throw new IOException();
-		} catch (Exception exception) {
+			throw new IOException();// throw IOException
+
+		} catch (Exception exception) {// if caught the Exception type of exception, then execute following code
 			System.out.println("Caught IOException");
-			System.err.println(exception.getMessage());
 			exception.printStackTrace();
 		}
 
 	}
 
+	/* inner class ExceptionBlue is a subclass of Exception */
 	class ExceptionBlue extends Exception {
 
 	}
 
-	class ExceptionYellow extends Exception {
+	/* inner class ExceptionYellow is a subclass of ExceptionBlue */
+	class ExceptionYellow extends ExceptionBlue {
 
 	}
 

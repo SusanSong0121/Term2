@@ -4,33 +4,35 @@ package exception_handling;
  * Class Name: CST8284-300 Assignment3 
  * Author Name: Chunfang Song 
  * Class Name: SolutionThree 
- * Date: August 8,2021
+ * Date: August 11,2021
  */
 
+/*
+ * Class SolutionThree will perform rethrowing exception handling 
+ */
 public class SolutionThree {
 
-	public SolutionThree() {
-		// TODO Auto-generated constructor stub
-	}
-
+	// entry point of the program
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		try
 		{
-			courseStarting();
+			courseStarting(); //call coursStarting()
 		}
-		catch (Exception e)
+		catch (Exception e)//if caught the Exception type exception then execute following code
 		{
 			System.out.println("Caught an exception");
 			System.err.println(e.getMessage());
-			e.printStackTrace();
+			e.printStackTrace();// print the throwable and its backtrace to the standard error stream
 		}
 	}
 	
+	//method courseEnding() initially throw an exception
 	public static void courseEnding() throws Exception {
 		throw new Exception("Exception thrown in courseEnding");
 	}
 	
+	//method courseStarting() calls courseEnding and catch the rethrow exception
 	public static void courseStarting() throws Exception {
 		try {
 			courseEnding();
